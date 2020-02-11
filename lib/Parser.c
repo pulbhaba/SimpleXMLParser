@@ -10,9 +10,9 @@ int skipSpaces(int count);
 int skipHeader(int count);
 
 // Variables
-char *xmlText=NULL;
-int textSize=0,numElem=0,lvlIndex=NULL;
-XMLTag *root=NULL;
+char *xmlText = NULL;
+int textSize = 0, numElem = 0, lvlIndex = 0;
+XMLTag *root = NULL;
 XMLTag *xmlptr=NULL; 
 
 /* void SetText(const char* text)
@@ -46,12 +46,12 @@ void SetPath(const char *text)
 */
 int ParseTree()
 {
-	int count=0,wordIndex=-1;
-	char *ptr=NULL;
-	char *element=NULL;
-	char lastProcessedElement=NULL;
-	BOOL tagOpened=FALSE;
-	BOOL bufferFilledTagValue=FALSE,bufferFilledTagName=FALSE;
+	int count = 0,wordIndex = -1;
+	char *ptr = NULL;
+	char *element = NULL;
+	char lastProcessedElement = '\0';
+	BOOL tagOpened = FALSE;
+	BOOL bufferFilledTagValue = FALSE,bufferFilledTagName = FALSE;
 
 	if(xmlText==NULL)
 	{
