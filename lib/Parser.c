@@ -28,9 +28,9 @@ void SetText(const char *text)
 		printf("Err: Text size is NULL.\n");
 		return;
 	}
-	xmlText=(char *)calloc(textSize+1,sizeof(char));
+	xmlText=(char *)calloc(textSize+1, sizeof(char));
 
-	strcpy_s(xmlText,textSize+1,text);
+	strcpy(xmlText, text);
 }
 
 /* void SetPath(const char* text)
@@ -211,7 +211,7 @@ XMLTag *allocstrXMLTag(char arg,char *text,XMLTag *Tag)
 		return Tag;
 	}
 
-	strcpy_s(ptr,elemLen+1,text);
+	strcpy(ptr, text);
 
 	switch (arg)
 	{
