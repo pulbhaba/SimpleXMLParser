@@ -1,4 +1,4 @@
-#include "SimpleXMLParser.h"
+#include "Parser.h"
 #define MAX_NUM_OF_SIZE		32727
 #define MAX_NUM_OF_ATTRIB	100
 #define VarToStr(name) #name

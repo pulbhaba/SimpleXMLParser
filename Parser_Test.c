@@ -1,4 +1,4 @@
-#include "SimpleXMLParser.h"
+#include "Parser.h"
 
 int Test1()
 {
