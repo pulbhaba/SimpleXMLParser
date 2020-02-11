@@ -54,3 +54,10 @@ Temporary Items
 *.log
 *.pdb
 *.idb
+
+*.sln
+*.vcxproj
+*.filters
+
+*.swp
+tags
