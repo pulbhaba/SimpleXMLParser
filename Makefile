@@ -1,5 +1,11 @@
 CC=gcc
-AR=ar rcsUu
+AR=ar rcs
+DEL=rm -f
+RUN=./$(TEST)
+
+CFLAGS=-I./lib
+LDFLAGS=-L.
+LDLIBS=-lparser
 
 LIBSRC=./lib/Parser.c
 TESTSRC=./Parser_Test.c
@@ -7,12 +13,22 @@ TESTSRC=./Parser_Test.c
 LIBOBJS=$(LIBSRC:.c=.o)
 TESTOBJS=$(TESTSRC:.c=.o)
 
-libparser: $(LIBOBJS)
-	 $(AR) $@.a $(LIBOBJS)
+LIB=libparser.a
+TEST=test
+EXECUTABLE=run
 
-test: libparser $(TESTOBJS)
+all: $(LIB) $(TEST) $(EXECUTABLE) 
+
+$(EXECUTABLE): $(LIB) 
+	$(CC) $(CFLAGS) $(TESTSRC) $(LDFLAGS) $(LDLIBS) -o $@
+
+$(TEST): $(LIB) $(TESTOBJS)
+	$(CC) -o $@ $(TESTOBJS) $(LIBOBJS) 
+
+$(LIB): $(LIBOBJS)
+	$(AR) $@ $(LIBOBJS)
 
 clean:
-	rm $(LIBOBJS) libparser.a
+	$(DEL) $(LIBOBJS) $(TESTOBJS) $(LIB) $(EXECUTABLE) $(TEST)
 
 
